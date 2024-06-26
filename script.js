@@ -1,73 +1,49 @@
 
-
-
-// let btn=document.querySelectorAll("button");
-// btn.addEventListener("click",(e)=>{
-//     console.dir(e.target());
-// })
-
-
-// let btns = document.querySelectorAll("button");
-// btns.forEach((btn) => {
-    //     btn.addEventListener("click", (e) => {
-        //         console.dir((e.target).innertext);
-        //     });
-        // });
+        let expression="";
         
-        
-        
-        let str="";
-        
-   let out=document.querySelector(".output");
-let inp=document.querySelector(".input");
+   let output=document.querySelector(".output");
+let input=document.querySelector(".input");
 let btns = document.querySelectorAll("button");
-let p_btn="";
+let pre_btn="";
 btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-        let c_btn=e.target;
-        inp.innerText=c_btn.className;
-          
-         if(str==="" && c_btn.className==="op")
+         let current_btn=e.target;  
+         if(expression==="" && current_btn.className==="operator")
             {
-                inp.innerText="Error";
-                
+                input.innerText="Error";git
+                return;
             }
-            else{
 
-                if( p_btn.className==="op" && c_btn.className==="op")
-                    {   
-                         str = str.slice(0, -1) + c_btn.innerText;
-                        inp.innerText = str;
-                    }
-                    else
+            if( pre_btn.className==="operator" && current_btn.className==="operator")
+                {   
+                     expression = expression.slice(0, -1) + current_btn.innerText;
+                    input.innerText = expression;
+                    return;      
+                }
+
+                if(current_btn.id==="clear")
                     {
-
-                        if(c_btn.innerText!="C")
-                            {
-                                if(c_btn.innerText==="=")
-                                    { 
-                                        inp.innerText=str+"=";
-                                        out.innerText=eval(str);
-                                    }
-                                    else
-                                    {
-                                        str+=c_btn.innerText;       
-                                        inp.innerText=str;
-                                    }
+                        expression="";
+                        input.innerText=""; 
+                        output.innerText="";
+                        return;
+                    }     
+                    if(current_btn.id==="equal" && pre_btn.className==="operator")
+                        { 
                             
+                            return;
+                        }
 
-                            }
-                            else
-                            {
-                                str="";
-                                inp.innerText=""; 
-                                out.innerText="";
-                            }
-                    }
-            }
-      p_btn=c_btn;
-        
-    
+                    if(current_btn.id==="equal")
+                        { 
+                            input.innerText=expression+"=";
+                            output.innerText=eval(expression);
+                            return;
+                        }
+                               
+                                        expression+=current_btn.innerText;       
+                                        input.innerText=expression;
+                                        pre_btn=current_btn;
     });
 });
 

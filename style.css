@@ -1,0 +1,82 @@
+body{
+    background-color: rgb(181, 171, 171);
+}
+
+.headerr
+{
+    background-color:rgb(37, 37, 116);
+    height: 70px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    color: white;
+
+
+}
+
+
+.cal
+{ 
+    background-color: rgb(255, 255, 255);
+    margin: 10px auto;
+     width: 400px;
+     height: 600px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+     
+}
+
+
+
+.cal .output
+{
+    height: 30%;
+    width: 100%;
+    font-size: 60px;
+}
+
+.cal .input
+{
+    background-color: rgb(71, 71, 160,0.7);
+    height: 10%;
+    width: 100%;
+    font-size: 30px;
+    overflow-x:scroll
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.cal .input::-webkit-scrollbar
+{
+
+display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.cal .input
+{
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+.key
+{
+    background-color: antiquewhite;
+    height: 60%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    
+}
+
+.key button
+{
+    font-size: 30px;
+
+}
+
+.key button :active
+{
+    background-color: rgb(14, 14, 59);
+}

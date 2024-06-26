@@ -10,7 +10,7 @@ btns.forEach((btn) => {
          let current_btn=e.target;  
          if(expression==="" && current_btn.className==="operator")
             {
-                input.innerText="Error";git
+                input.innerText="Error";
                 return;
             }
 

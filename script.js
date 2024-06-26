@@ -1,21 +1,4 @@
 
-
-
-// let btn=document.querySelectorAll("button");
-// btn.addEventListener("click",(e)=>{
-//     console.dir(e.target());
-// })
-
-
-// let btns = document.querySelectorAll("button");
-// btns.forEach((btn) => {
-    //     btn.addEventListener("click", (e) => {
-        //         console.dir((e.target).innertext);
-        //     });
-        // });
-        
-        
-        
         let expression="";
         
    let output=document.querySelector(".output");
@@ -27,7 +10,7 @@ btns.forEach((btn) => {
          let current_btn=e.target;  
          if(expression==="" && current_btn.className==="operator")
             {
-                input.innerText="Error";git
+                input.innerText="Error";
                 return;
             }
 
@@ -38,22 +21,25 @@ btns.forEach((btn) => {
                     return;      
                 }
 
-                if(current_btn.innerText==="C")
+                if(current_btn.id==="clear")
                     {
                         expression="";
                         input.innerText=""; 
                         output.innerText="";
                         return;
                     }     
+                    if(current_btn.id==="equal" && pre_btn.className==="operator")
+                        { 
+                            
+                            return;
+                        }
 
-                    if(current_btn.innerText==="=")
+                    if(current_btn.id==="equal")
                         { 
                             input.innerText=expression+"=";
                             output.innerText=eval(expression);
                             return;
                         }
-                              
-                            
                                
                                         expression+=current_btn.innerText;       
                                         input.innerText=expression;
